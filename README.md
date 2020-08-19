@@ -18,11 +18,10 @@ Packages
 
 2. Put the dataset into the according `data_raw` folder. 
 
-3. You can either process the raw datasets via
+3. Create a folder named `data_processed`, you can process the raw datasets via
 `python3 prepareDataset.py`
-or use [our processed data](https://drive.google.com/file/d/1t9I01YtBc-5d3bGJf2UAd_J3FNIDvpux/view?usp=sharing). 
 
-Here we give the processing code for the MovieLens dataset, if you also want the code for processing the Bookcrossing dataset, please star this project and email me :). 
+Here we only give the processing code for the MovieLens dataset, please write your own code for processing Bookcrossing dataset with the similar functions presented in `prepareMovielens.py`
 
 4. The structure of the processed dataset:
 
@@ -68,6 +67,7 @@ The structure of our code:
   input_loading.py
   memories.py
   rec_model.py
+configs.py
 mamoRec.py
 models.py
 prepareDataset.py
@@ -79,6 +79,12 @@ Run the codes in `mamoRec.py` for training the model:
 if __name__ == '__main__':
     MAMRec('movielens')
 ```
+
+## Some tips
+1. This version of code runs over all training or testing users, which may take about half an hour for one epoch on a Linux server with NVIDIA TITAN X. So you can revise the code for updating the parameters via batches of users and using parallel computing. 
+
+2. You can del the used variables to save the computation cost. If you have any suggestions on saving the computation cost, I'm happy to receive your emails. 
+
 
 ## Citation 
 If you use this code, please consider to cite the following paper:
